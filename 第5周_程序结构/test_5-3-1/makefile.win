@@ -1,0 +1,37 @@
+# Project: test_5-3-1
+# Makefile created by Red Panda Dev-C++ beta.0.10.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = test_5-3-1_private.res
+OBJ      = main.o max.o $(RES)
+LINKOBJ  = main.o max.o $(RES)
+CLEANOBJ  =  main.o max.o $(RES)
+LIBS     =  -s -static
+INCS     =  
+CXXINCS  =  
+BIN      = test_5-3-1.exe
+CXXFLAGS = $(CXXINCS)  -O2 -pipe
+CFLAGS   = $(INCS)  -O2 -pipe
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) $(BIN) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c D:/ProgramData/C语言程序设计进阶_浙江大学/第5周_程序结构/test_5-3-1/main.c -o main.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+max.o: max.c
+	$(CC) -c D:/ProgramData/C语言程序设计进阶_浙江大学/第5周_程序结构/test_5-3-1/max.c -o max.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+test_5-3-1_private.res: test_5-3-1_private.rc 
+	$(WINDRES) -i test_5-3-1_private.rc --input-format=rc -o test_5-3-1_private.res -O coff 
+
