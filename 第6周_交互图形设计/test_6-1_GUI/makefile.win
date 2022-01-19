@@ -1,0 +1,37 @@
+# Project: test_6-1_GUI
+# Makefile created by Red Panda Dev-C++ beta.0.10.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = test_6-1_GUI_private.res
+OBJ      = main.o acllib.o $(RES)
+LINKOBJ  = main.o acllib.o $(RES)
+CLEANOBJ  =  main.o acllib.o $(RES)
+LIBS     = 
+INCS     =  
+CXXINCS  =  
+BIN      = test_6-1_GUI.exe
+CXXFLAGS = $(CXXINCS)  -Wall -Wextra -g3 -pipe -D__DEBUG__
+CFLAGS   = $(INCS)  -Wall -Wextra -g3 -pipe -D__DEBUG__
+RM       = del /q /f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(CLEANOBJ) $(BIN) > NUL 2>&1
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c acllib.h
+	$(CC) -c D:/ProgramData/C语言程序设计进阶_浙江大学/第6周_交互图形设计/test_6-1_GUI/main.c -o main.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+acllib.o: acllib.c acllib.h
+	$(CC) -c D:/ProgramData/C语言程序设计进阶_浙江大学/第6周_交互图形设计/test_6-1_GUI/acllib.c -o acllib.o $(CFLAGS)  -finput-charset=UTF-8 -fexec-charset=gbk
+
+test_6-1_GUI_private.res: test_6-1_GUI_private.rc 
+	$(WINDRES) -i test_6-1_GUI_private.rc --input-format=rc -o test_6-1_GUI_private.res -O coff 
+
