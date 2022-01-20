@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="https://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="https://java.sun.com/xml/ns/j2ee https://java.sun.com/xml/ns/j2ee/web-jsptaglibrary_2_1.xsd"
+    version="2.1">
+	<tlib-version>1.0</tlib-version>		<!-- 表示标签库的版本 -->
+	<short-name>firsttag</short-name>		<!-- 为标签库在TLD中的描述名称 -->
+	<tag>
+		<name>hello</name>		<!-- 表示标签在JSP中的使用名称 -->
+		<tag-class>
+			com.org.tag.HelloTag_92
+		</tag-class>		<!--  表示这个标签所指向的class文件 -->
+		<body-content>empty</body-content>	<!-- 表示标签体内容为空 -->
+	</tag>
+</taglib>
