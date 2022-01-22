@@ -1,0 +1,25 @@
+<!-- 
+    附录C2_Django-模版-templates 
+    #Django 2.4.2 常用表单元素
+-->
+
+
+<h3> Django 2.4.2 常用表单元素 </h3>
+
+<!-- #checkbox 单选元素
+    <form name="frm" action="" method="post"> 
+        <input type="checkbox" name="python" value="python" {% if python == 'python' %} checked{% endif %}> Python
+        <input type="checkbox" name="php" value="php" {% if sex == "php" %} checked{% endif %}> PHP
+        <input type="submit" value="submit">
+    </form>    
+    {{msg}}
+-->
+
+
+<!-- checkbox 多选元素 -->
+    <form name="frm" action="" method="post">
+        <input type="checkbox" name="courses" value="Python" {% if "python" in courses %} checked{% endif %}>Python
+        <input type="checkbox" name="courses" value="Php" {% if "php" in courses %} checked{% endif %}>PHP
+        <input type="submit" value="提交">
+    </form>
+    {{msg}}

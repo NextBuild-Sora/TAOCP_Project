@@ -1,0 +1,21 @@
+<!-- 
+    附录C2_Django-模版-templates 
+    #Django 2.3.2 模版 条件参数
+-->
+
+
+<h3> 232 条件模版参数 </h3>
+
+<from name="frm" action="" method="post">
+    <select name="sclass" size="{{size}}" multiple>
+        {% for c in cList %}
+            <!-- 
+            <option value='{{c}}' {% if sclass == c %}selected{% endif %}>{{c}}班</option> 
+            -->
+            <option value='{{c}}' {% if c in sclass %}selected{% endif %}>{{c}}班</option>
+            {% endfor %}
+    </select>
+<input type="submit" value="submit" >
+</from>
+<div> {{msg}} </div>
+

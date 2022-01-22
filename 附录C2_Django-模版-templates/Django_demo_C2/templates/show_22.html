@@ -1,0 +1,28 @@
+<!-- 
+    附录C2_Django-模版-templates 
+    #Django 2.2 列表模版参数
+-->
+
+
+<h3> 模版 </h3>
+
+<!-- 简单列表
+{% for name in names %}
+<div>{{name}}</div>
+{% endfor %}
+-->
+
+
+<!-- 复杂的列表 -->
+<table border="1" width="300" style="background-color: gray;">
+{% for s in students %}
+<tr> <td>{{s.name}}</td> <td>{{s.sex}}</td> <td>{{s.age}}</td>
+<td>
+    {% for c in s.courses %}
+    <div>{{c}}</div>
+    {% endfor %}
+</td>
+</tr>
+{% endfor %}
+</table>
+

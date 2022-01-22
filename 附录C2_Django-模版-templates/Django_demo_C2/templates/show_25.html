@@ -1,0 +1,26 @@
+<!-- 
+    附录C2_Django-模版-templates 
+    #Django 2.5 模版 综合实训 学生名单
+-->
+
+
+<h2> 显示班级 </h2>
+
+
+{% for c in clist %}
+<div>
+    <a href="?cName={{c}}">{{c}}</a>
+</div>
+{% endfor %}
+
+
+<p>
+    {% for s in slist %}
+    <div>{{s.no}}, {{s.name}}, {{s.cname}}</div>
+    {% endfor %}
+</p>
+
+
+
+你好
+{{slist}}

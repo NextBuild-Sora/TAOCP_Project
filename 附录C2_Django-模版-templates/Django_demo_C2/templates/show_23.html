@@ -1,0 +1,26 @@
+<!-- 
+    附录C2_Django-模版-templates 
+    #Django 2.3 模版 条件参数
+-->
+
+
+<h3> 条件模版参数 </h3>
+
+<!--
+{{age}}
+{% if age >= 18 %}
+成年人
+{% elif age >= 14 %}
+少年
+{% else %}
+未成年
+{% endif %}
+-->
+
+{% for s in st %}
+<div>{{s.name}}, {{s.sex}}</div>
+
+<div>{{s.name}}, {% if s.sex == "M" %}男{% else %}女{% endif %}</div>
+{% endfor %}
+
+

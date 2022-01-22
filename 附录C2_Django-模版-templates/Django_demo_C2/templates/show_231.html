@@ -1,0 +1,15 @@
+<!-- 
+    附录C2_Django-模版-templates 
+    #Django 2.3.1 模版 条件参数
+-->
+
+
+<h3> 条件模版参数 </h3>
+
+<from name="frm" action="" method="post">
+    <input type="checkbox" name="python" value="python" {% if python == "python" %}checked{% endif %}>Python
+    <input type="checkbox" name="mysql" value="mysql" {% if mysql == "mysql" %}checked{% endif %}>MySQL
+    <input type="submit" value="submit" >
+</from>
+<div>{{msg}}</div>
+

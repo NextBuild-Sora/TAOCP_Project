@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<h2> 显示学生 </h2>
+
+<p>
+    {% for s in slist %}
+    <div>{{s.no}}, {{s.name}}, {{s.cname}}</div>
+    {% endfor %}
+</p>
+<a href="/"> Back </a>
+
+
+
+</body>
+</html>
