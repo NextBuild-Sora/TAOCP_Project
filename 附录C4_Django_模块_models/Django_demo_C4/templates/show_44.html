@@ -1,0 +1,28 @@
+
+<!-- Django 4.4 模块 综合实训
+ -->
+
+
+
+<h3>Django 4.4 模块 综合实训 </h3>
+
+<html> 
+    <body> 
+        <table border="1" width="600"> 
+            <tr><td colspan="6" align="right"><a href="insert">增加</a></td></tr>
+        <tr><td>姓名</td><td>性别</td><td>年龄</td><td>电话</td><td>删除</td><td>编辑</td></tr>
+
+        {% for person in persons %}
+            <tr>
+                <td>{{person.pName}}</td> 
+                <td>{% if person.pSex == "M" %}男{% else %}女{% endif %}</td> 
+                <td>{{person.pAge}}</td> 
+                <td>{{person.pTel}}</td> 
+            <td><a href="?Name={{person.pName}}">删除</a></td> 
+            <td><a href="update?Name={{person.pName}}">编辑</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    </body>
+</html>
+

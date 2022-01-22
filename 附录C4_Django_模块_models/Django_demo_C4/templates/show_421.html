@@ -1,0 +1,22 @@
+
+<!-- Django 4.2 模块 操作数据
+ -->
+
+
+
+<h3>Person List </h3>
+
+{% for p in persons %}
+<div>{{p.Name}}, {{p.Sex}}, {{p.Age}}</div>
+{% endfor %}
+
+
+<p>
+    <form name="frm" action="" method="POST">
+        <table>
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="增加" />
+    </form>
+</p>
+

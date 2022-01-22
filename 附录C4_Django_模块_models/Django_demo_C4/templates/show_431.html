@@ -1,0 +1,55 @@
+
+<!-- Django 4.3.1 模块 管理数据
+ -->
+
+
+ <script>
+    //  JS
+    function updateRow()
+    {
+        // var name = document.getElementById("id_Name").value; 
+        var frm = document.getElementById("frm");
+        frm.action = "?cmd=update";
+        frm.submit();
+    }
+
+    function deleteRow()
+    {
+        var frm = document.getElementById("frm");
+        frm.action = "?cmd=delete";
+        frm.submit();
+     
+    }
+
+    function insertRow()
+    {
+         var frm = document.getElementById("frm");
+         frm.action = "?cmd=insert";
+         frm.submit();
+    }
+ </script>
+
+
+<h3>Person List </h3>
+
+
+{% for p in persons %}
+<div>{{p.Name}}, {{p.Sex}}, {{p.Age}}</div>
+{% endfor %}
+
+
+<p>
+    <!-- <form name="frm" action="" method="POST"> -->
+    <form name="frm" id="frm" action="" method="POST"></form>
+        <table>
+            {{form.as_table}}
+        </table>
+        <!-- <input type="submit" value="增加" /> -->
+        <input type="button" value="增加" onclick="insertRow()" />
+        <input type="button" value="修改" onclick= "updateRow()" />
+        <input type="button" value="删除" onclick= "deleteRow()" />
+    </form>
+    {{msg}}
+</p>
+
+

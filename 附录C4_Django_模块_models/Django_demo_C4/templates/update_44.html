@@ -1,0 +1,19 @@
+
+<!-- Django 4.4 模块 综合实训
+ -->
+
+
+
+<h3>Update</h3> 
+<div>
+    <form name="frm" id="frm" action="update" method="post"> 
+        <p>姓名:{{Name}}</p> 
+        <input type="hidden" name="Name" value="{{Name}}" />
+        {{form.as_p}}
+        <input type="submit" value="更新">
+    </form> 
+    <div>{{msg}}</div>
+</div> 
+<div><a href="/">[返回]</a></div>
+
+
