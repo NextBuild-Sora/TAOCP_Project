@@ -1,0 +1,16 @@
+
+<!-- Django 5.4 网站 综合实训 -->
+
+<h3 align="center">手机列表</h3> 
+<div align="center"><a href="/login">登录</a></div> 
+<table border="1" width="800" align="center"> 
+    <tr><th>ID</th><th>型号</th><th>厂商</th><th>年份</th><th>价格
+</th><th>数量</th><th>简介</th></tr>
+    {% for p in phones %}
+
+    <tr><td>{{p.id}}</td><td>{{p.model}}</td><td>{{p.maker}}</td><td>{{p.year}}</td><td>{{p.price}}</td><td>{{p.qty}}</td><td>{{p.desp}}</td></tr>
+    {% endfor %}
+</table>
+
+
+

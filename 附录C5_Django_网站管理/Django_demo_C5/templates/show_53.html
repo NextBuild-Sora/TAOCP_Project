@@ -1,0 +1,15 @@
+
+<!-- # Django 5.3 超级管理员用户 -->
+
+
+<html> 
+    <body>
+        <H3>Person list</H3>
+    {% for person in persons %}
+    <!-- {{person}}<br> -->
+    {{person.Name}},{{person.Sex}},{{person.Age}},{{person.Tel}}<br>
+    {% endfor %}
+    </body>
+</html>
+
+
