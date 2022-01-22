@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!-- 附录C3 Django 表单 forms
+    3.7 表单 综合实训
+    -->
+
+<h2> 3.7 表单 综合实训 </h2>
+
+<script>
+    function trySubmit()
+    {
+        var px= document.getElementByID("pwd").value;
+        var px= document.getElementByID("pwdConfirm").value;
+        if (px != "" && px==py)
+        {
+            document.getElementByID("frm").submit();
+        }
+        else
+        {
+            alert("两次密码不一致！"); return false;
+        }
+    }
+</script>
+
+<form name= "frm" id= "frm" action= "" method= "post">
+
+    <table>
+        {{form.as_table}}
+    </table>
+    <input type= "button" value= "注册" onclick= "trySubmit()">
+    
+</form>
+
+<div>{{msg}}</div>
+
+
+
+
+</body>
+</html>
+
+

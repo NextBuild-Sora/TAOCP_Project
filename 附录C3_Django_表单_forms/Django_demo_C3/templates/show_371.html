@@ -1,0 +1,23 @@
+
+<h1>用户注册</h1>
+
+<form name= "frm" action= "" method= "POST">
+    <table>
+        {{form.as_table}}
+    </table>
+    <div><input type= "submit" value= "注册"</div>
+
+</form>
+
+<div>{{msg}}</div>
+
+<ul>
+    {% for e in errors %}
+    <li>{{e}}</li>
+    {% endfor %}
+</ul>
+
+<div><a href="/">登陆</a></div>
+
+
+
