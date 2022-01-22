@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    function init()
+    {
+        http=new XMLHttpRequest();
+        http.open("get","/show",false);
+        http.send(null);
+        msg=http.responseText;
+        document.getElementById("sMsg").innerHTML=msg;
+        document.getElementById("jMsg").innerHTML="JavaScript Message";
+    }
+</script>
+<body onload="init()">
+Testing<br>
+<span id="hMsg">Html Message</span><br>
+<span id="jMsg"></span><br>
+<span id="sMsg"></span>
+</body>
+
+
+</body>
+</html>
+
+

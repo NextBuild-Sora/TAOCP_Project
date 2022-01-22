@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- 5.7 综合项目 爬取模拟商城网站数据
+   5.7.1 创建模拟商城网站.
+    1、创建网页模版.
+    在 templates 中创建一个 phone.html 网页模版
+    -->
+
+<style>
+    .phone  <!-- 所有手机的记录列表 -->
+    {
+         display:inline-block;
+         padding:10px 10px 10px 10px;
+         border:solid 0px;
+         width:200px;
+         height:300px;
+         vertical-align: text-top;
+         text-align:left
+     }
+</style>
+<script>
+     function firstPage()
+     {
+         window.location.href="/?pageIndex=1";
+     }
+     function prevPage()
+     {
+         var pageIndex=parseInt(document.getElementById("pageIndex").value);
+         pageIndex--;
+         if (pageIndex>=1)
+         {
+             window.location.href="/?pageIndex="+pageIndex;
+         }
+     }
+     function nextPage()
+     {
+         var pageIndex=parseInt(document.getElementById("pageIndex").value);
+         var pageCount=parseInt(document.getElementById("pageCount").value);
+         pageIndex++;
+         if (pageIndex<=pageCount)
+         {
+            window.location.href="/?pageIndex="+pageIndex;
+        }
+     }
+     function lastPage()
+     {
+     var pageCount=parseInt(document.getElementById("pageCount").value);
+     window.location.href="/?pageIndex="+pageCount;
+     }
+    </script>
+    <body>
+    <div style="text-align:center">
+    {% for p in phones %}   <!--使用一个循环得到每部手机的数据。-->
+    {% if loop.index0 is divisibleby(rowItemCount) %}   <!-- 指示一行显示几部手机 -->
+    <div style="width:{{rowItemCount*250}}px;text-align:left;display:inline-block">
+    {% endif %}     <!-- 开启一个<div>元素显示这 rowItemCount 部手机，每部手机宽度是 250px -->
+    <div class="phone" >
+    <div>{{p.no}}</div>
+    <div><img src="images/{{p.image}}" width="100" height="100"></div>
+    <p></p>
+    <div>{{p.mark}}</div>
+    <div>价格：￥<span style="color:red">{{p.price}}</span></div>
+    <div>{{p.note}}</div>
+    </div>
+    {% if (loop.index0+rowItemCount+1) is divisibleby(rowItemCount) %}
+    </div>
+    {% endif %}     <!-- 建立一个</div>进行封闭 -->
+    {% endfor %}
+    {% if numbers is not divisibleby(rowItemCount) %}   <!-- 手机的总数量 -->
+    </div>
+    {% endif %}     <!-- 在总数不是 rowItemCount 的倍数时增加一个</div>的封闭元素 -->
+    </div>
+    <div align="center" class="paging">
+    <input type="hidden" id="pageIndex" value="{{pageIndex}}">
+    <input type="hidden" id="pageCount" value="{{pageCount}}">
+    <input type="button" id="first" value="第一页" onclick="firstPage()">
+
+        <!-- 使用两个隐藏的<input type="hodden">记录这两个参数的值 -->
+        {% if pageIndex>1 %}    <!--如果 当前页码 大于1-->
+    <input type="button" value="前一页" onclick="prevPage()">
+         {% else %}
+    <input type="button" value="前一页" disabled="true">
+         {% endif %}
+         {% if pageIndex<pageCount %}   <!-- 如果 当前页码 小于 总页数 -->
+    <input type="button" id="next" value="下一页" onclick="nextPage()">    <!--构造翻页按钮-->
+         {% else %}
+    <input type="button" value="下一页" disabled="true">
+         {% endif %}
+    <input type="button" id="last" value="最后页" onclick="lastPage()">
+    <span>Page {{pageIndex}}/{{pageCount}}</span>
+    </div>
+    </body>
+
+
+</body>
+</html>
+

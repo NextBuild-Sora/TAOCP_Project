@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<!-- 5.6 Selenium 等待 HTML 元素 -->
+<!--
+    5.6.1 创建延迟模拟网站.
+    1、创建网页模版.
+    这个文件使用 Ajax 从服务器获取手机的品牌放在一个<select>中，
+注意<select>中的<option>开始是不存在的，
+只有获取数据后才产生，
+模版文件如下：
+-->
+
+<script>
+    function loadMarks()
+    {
+        var http=new XMLHttpRequest();
+        http.onreadystatechange=function()
+        {
+        if (http.readyState==4 && http.status==200)
+        {
+            var xmark=document.getElementById("xmark");
+            var xcolor=document.getElementById("xcolor");
+            marks=eval("("+http.responseText+")");
+            for(var i=0;i<marks.length;i++)
+            xmark.options.add(new Option(marks[i],marks[i]));
+            document.getElementById("submit").disabled=false;
+            document.getElementById("msg").innerHTML="品牌";
+        }
+    };
+    http.open("get","/marks",true);
+    http.send(null);
+    }
+    loadMarks();
+</script>
+<body>
+<form name="frm" action="/">
+    <div><span id="msg"></span><select id="xmark" ></select></div>
+<input type="submit" value="提交" id="submit" disabled="true">
+</form>
+</body>
+
+
+</body>
+</html>
+

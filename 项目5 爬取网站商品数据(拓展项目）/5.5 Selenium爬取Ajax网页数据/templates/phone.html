@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!-- 5.5 Selenium 爬取 Ajax 网页数据 -->
+<!-- 5.5.1 创建 Ajax 的网站 -->
+<!-- 1、在 templates 文件夹中创建网页文件 phone.html -->
+
+<script>
+    function init()
+    {
+        var marks=new Array("华为","苹果","三星");
+        var selm=document.getElementById("marks");
+        for(var i=0;i<marks.length;i++)
+        {
+        selm.options.add(new Option(marks[i],marks[i]));
+        }
+        selm.selectedIndex=0;
+        display();
+    }
+ function display()
+ {
+     try
+     {
+     var http=new XMLHttpRequest();
+     var selm=document.getElementById("marks");
+     var m=selm.options[selm.selectedIndex].text;
+     http.open("get","/phones?mark="+m,false);
+     http.send(null);
+     msg=http.responseText;
+     obj=eval("("+msg+")");
+     s="<table width='200' border='1'><tr><td>型号</td><td>价格</td></tr>"
+     for(var i=0;i<obj.phones.length;i++)
+         {
+        s=s+"<tr><td>"+obj.phones[i].model+"</td><td>"+obj.phones[i].price+"</td></tr>";
+         }
+         s=s+"</table>";
+         document.getElementById("phones").innerHTML=s;
+     }
+     catch(e) { alert(e); }
+ }
+</script>
+<body onload="init()">
+<div>选择品牌<select id="marks" onchange="display()"></select></div>
+<div id="phones"></div>
+</body>
+
+
+</body>
+</html>
+
